@@ -11,14 +11,16 @@ Teniendo en cuenta esto utilicé aproximadamente:
 ### MÁQUINAS Y RED
 Para estas máquinas virtuales se requiere de un virtualizador, en esta guía se utiliza **VirtualBox**, estas van a ser:  
 - Una máquina virtual con [PFsense](https://www.pfsense.org/download/)
-- Una máquina virtual con [Linux Ubuntu](https://ubuntu.com/download/desktop)
+- Una máquina virtual con [Linux Ubuntu 24.04](https://ubuntu.com/download/desktop)
   
 Dentro de VirtualBox utilizaremos 2 tipos de redes:  
 * Una es la red WAN para dar internet.  
 * Y la red LAN que viene por defecto en VirtualBox.
 
 ## <ins>PFsense</ins>
-Para que PFsense detecte cuál es cada red, se asignan manualmente de la siguiente manera:
+Antes de iniciar la máquina hay que darle <ins>click derecho</ins> y entrar en configuración. Dentro de configuración vamos a la pestaña <ins>Network</ins>, donde hay que habilitar el <ins>Adapter 2</ins>. Ahí cambiamos la opción WAN por INTERNAL NETWORK, y en opciones avanzadas, en **Promiscuous Mode**, habilitamos **Allow All** y le damos a Accept.
+
+Una vez finalizada la instalación. Para que PFsense detecte cuál es cada red, se asignan manualmente de la siguiente manera:
 * Se elige la opción 1.
 * En la opción de VLANs se selecciona simplemente Enter.
 * Cuando pida identificar la red WAN, se elige la opción que esté configurada en VirtualBox como Adapter 1.
@@ -44,5 +46,19 @@ Cuando se termine de configurar, nos va a dar una dirección web que, utilizando
 > **Login**: admin  
 > **Password**: pfsense
 
+### <ins>Linux/Ubuntu</ins> 
+Antes de iniciar la máquina, vamos a la configuración y en la opción de Network elegimos en Adapter1 la opción de "**Internal Network**".  
+Sigue la instalación y, al ingresar al escritorio, configuramos la red.  
 
-(seguir mirando esto https://packages.ntop.org/apt/)
+La misma se configura desde la parte superior derecha:
+* Wired Connected
+  * Wired Settings
+    * Clic en la "tuerca"
+      * Ir a la pestaña "IPv4"
+
+Aquí configuramos la dirección IP manualmente con alguna IP dentro del rango DHCP o simplemente dejar que DHCP lo conecte automaticamente.
+
+Para probar que la conexión es estable, accedemos a "http://192.168.1.1/" (ejemplo). Si accede, la red LAN funciona correctamente.
+
+## <ins>Ntopng</ins>
+Una vez conectado a Pfsense 

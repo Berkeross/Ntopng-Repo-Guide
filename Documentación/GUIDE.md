@@ -41,7 +41,7 @@ Cuando se termine de configurar, hay que ir a la opción 2 donde:
 
 Cuando se termine de configurar, nos va a dar una dirección web que, utilizando el ejemplo anterior, quedaría "http://192.168.1.1/" y con eso ya estaría terminada la configuración de PFsense.
 
-> [!IMPORTANT]  
+> [!NOTE]  
 > Para loguearse en la página de PFsense utilizar:  
 > **Login**: admin  
 > **Password**: pfsense
@@ -104,5 +104,28 @@ cd /etc/ntopng/ntopng.conf
 sudo nano ntopng.conf
 ```
 
-En este archivo se debe configurar guiandose con el archivo de ejemplo []() 
+En este archivo se debe configurar guiandose con el archivo de ejemplo [ntopng.conf](/Documentación/ntopng.conf). Aqui se debe configuar las siguients lineas como indica el archivo: #-i, #-w, #-m.
+
+> [!IMPORTANT]  
+> Todas las líneas que contienen `#` están comentadas. Quitar el `#` en las líneas que quieras configurar.
+
+Una vez configurado se deve habilitar el servicio utilizando:
+
+```bash
+sudo systemctl enable ntopng
+sudo systemctl start ntopng
+```
+
+### Monitorización
+para ingresar a ntopng en la web se utiliza `http://TU_IP:3000`, utilizando las credenciales 
+
+
+
+
+
+
+
+
+
+
 

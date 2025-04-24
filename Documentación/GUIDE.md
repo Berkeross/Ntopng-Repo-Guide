@@ -61,4 +61,48 @@ Aquí configuramos la dirección IP manualmente con alguna IP dentro del rango D
 Para probar que la conexión es estable, accedemos a "http://192.168.1.1/" (ejemplo). Si accede, la red LAN funciona correctamente.
 
 ## <ins>Ntopng</ins>
-Una vez conectado a Pfsense 
+Una vez conectado a Pfsense, utilize la terminal para ejecutar para actualizar el repositorio apt.
+
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+Luego se instalan las dependencias necesarias.
+
+```bash
+apt-get install software-properties-common wget gnupg
+add-apt-repository universe
+```
+
+Con las dependencias instaladas, hay que dirigirse al directorio `/var/cache/apt/archives/` utilizando:
+
+```bash
+cd /var/cache/apt/archives/
+sudo wget https://packages.ntop.org/apt/24.04/all/apt-ntop.deb
+```
+
+Ahora se debe instalar el repositorio con el comando:
+
+```bash
+sudo apt install ./apt-ntop.deb
+```
+</br>
+
+Una vez instalado, se alcualiza el repositorio volviendo a utilizar `Sudo apt update`, para luego instalar las los paquetes de **Ntopng**:
+
+```bash
+sudo apt install pfring-dkms nprobe ntopng n2disk cento ntap
+```
+
+### configuración 
+
+Luego de la instalacion se debe confiigura antes de levantar el servicio. Para esto se debe dirigir a la ruta `/etc/ntopng/ntopng.conf` y en esta utilizar el comando nano, siendo de esta forma:
+
+```bash
+cd /etc/ntopng/ntopng.conf
+sudo nano ntopng.conf
+```
+
+En este archivo se debe configurar guiandose con el archivo de ejemplo []() 
+

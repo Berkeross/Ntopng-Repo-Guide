@@ -117,8 +117,10 @@ sudo systemctl start ntopng
 ```
 
 ### Monitorización
-para ingresar a ntopng en la web se utiliza `http://TU_IP:3000`, utilizando las credenciales 
 
+para ingresar a ntopng en la web se utiliza `http://TU_IP:3000`, utilizando las credenciales para Usuario: "admin" y Password: "admin". Luego de ingresar te pedira cambiar la cantraseña a una de minimo 6 digitos.
+
+Dentro del servicio de ntopng los datos de tráfico se transforman en información clara y visual para ayudarte a detectar anomalías, cuellos de botella y posibles amenaza.
 
 
 

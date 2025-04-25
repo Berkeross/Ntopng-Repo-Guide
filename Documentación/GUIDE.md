@@ -61,7 +61,7 @@ Aquí configuramos la dirección IP manualmente con alguna IP dentro del rango D
 Para probar que la conexión es estable, accedemos a "http://192.168.1.1/" (ejemplo). Si accede, la red LAN funciona correctamente.
 
 ## <ins>Ntopng</ins>
-Una vez conectado a Pfsense, utilize la terminal para ejecutar para actualizar el repositorio apt.
+Una vez conectado a Pfsense, utilize la terminal para actualizar el repositorio apt.
 
 ```bash
 sudo apt update
